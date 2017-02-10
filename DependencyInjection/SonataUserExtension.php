@@ -313,8 +313,8 @@ class SonataUserExtension extends Extension
      */
     public function configureShortcut(ContainerBuilder $container)
     {
-        $container->setAlias('sonata.user.authentication.form', 'fos_user.profile.form');
-        $container->setAlias('sonata.user.authentication.form_handler', 'fos_user.profile.form.handler');
+        //$container->setAlias('sonata.user.authentication.form', 'fos_user.profile.form');
+        //$container->setAlias('sonata.user.authentication.form_handler', 'fos_user.profile.form.handler');
     }
 
     /**
@@ -332,7 +332,7 @@ class SonataUserExtension extends Extension
 
         $container->setParameter('sonata.user.configuration.profile_blocks', $config['profile']['dashboard']['blocks']);
 
-        $container->setAlias('sonata.user.profile.form.handler', $config['profile']['form']['handler']);
+        //$container->setAlias('sonata.user.profile.form.handler', $config['profile']['form']['handler']);
     }
 
     /**
@@ -358,7 +358,7 @@ class SonataUserExtension extends Extension
         $container->setParameter('sonata.user.registration.form.name', $config['profile']['register']['form']['name']);
         $container->setParameter('sonata.user.registration.form.validation_groups', $config['profile']['register']['form']['validation_groups']);
 
-        $container->setAlias('sonata.user.registration.form.handler', $config['profile']['register']['form']['handler']);
+        //$container->setAlias('sonata.user.registration.form.handler', $config['profile']['register']['form']['handler']);
     }
 
     /**
