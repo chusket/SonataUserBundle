@@ -275,7 +275,7 @@ class SonataUserExtension extends Extension
         $container->setParameter('sonata.user.admin.group.controller', $config['admin']['group']['controller']);
     }
 
-    public function configureTemplateEngine($config, ContrainerBuilder $container)
+    public function configureTemplateEngine($config, ContainerBuilder $container)
     {
         $container->setParameter('sonata.user.template.engine', $config['template']['engine']);
     }
