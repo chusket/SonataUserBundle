@@ -107,6 +107,7 @@ class SonataUserExtension extends Extension
 
         $this->configureTranslationDomain($config, $container);
         $this->configureController($config, $container);
+        $this->configureTemplateEngine($config, $container);
 
         // add custom form widgets
         $container->setParameter('twig.form.resources', array_merge(
@@ -269,8 +270,14 @@ class SonataUserExtension extends Extension
      */
     public function configureController($config, ContainerBuilder $container)
     {
+
         $container->setParameter('sonata.user.admin.user.controller', $config['admin']['user']['controller']);
         $container->setParameter('sonata.user.admin.group.controller', $config['admin']['group']['controller']);
+    }
+
+    public function configureTemplateEngine($config, ContrainerBuilder $container)
+    {
+        $container->setParameter('sonata.user.template.engine', $config['template']['engine']);
     }
 
     /**
