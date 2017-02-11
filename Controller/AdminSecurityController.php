@@ -124,7 +124,7 @@ class AdminSecurityController extends Controller
      */
     protected function renderLogin(array $data)
     {
-        $template = sprintf('FOSUserBundle:Security:login.html.%s', $this->container->getParameter('fos_user.template.engine'));
+        $template = sprintf('FOSUserBundle:Security:login.html.twig');
 
         return $this->render($template, $data);
     }
