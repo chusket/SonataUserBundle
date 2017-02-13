@@ -848,16 +848,5 @@ abstract class User extends AbstractedUser implements UserInterface
         return !$this->isAccountNonExpired();
     }
 
-    /**
-     * @param \DateTime $date
-     *
-     * @return User
-     */
-    public function setExpiresAt(\DateTime $date)
-    {
-        $this->expiresAt = $date;
-
-        return $this;
-    }
 
 }
