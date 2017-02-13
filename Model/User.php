@@ -169,20 +169,27 @@ abstract class User extends AbstractedUser implements UserInterface
     public function unserialize($serialized)
     {
         $data = unserialize($serialized);
-        // add a few extra elements in the array to ensure that we have enough keys when unserializing
-        // older data which does not include all properties.
-        $data = array_merge($data, array_fill(0, 2, null));
+
+        if (13 === count($data)) {
+            // Unserializing a User object from 1.3.x
+            unset($data[4], $data[5], $data[6], $data[9], $data[10]);
+            $data = array_values($data);
+        } elseif (11 === count($data)) {
+            // Unserializing a User from a dev version somewhere between 2.0-alpha3 and 2.0-beta1
+            unset($data[4], $data[7], $data[8]);
+            $data = array_values($data);
+        }
 
         list(
             $this->password,
             $this->salt,
             $this->usernameCanonical,
             $this->username,
-            $this->expired,
-            $this->locked,
-            $this->credentialsExpired,
             $this->enabled,
-            $this->id
+            $this->id,
+            $this->email,
+            $this->emailCanonical,
+            $this->locked,
         ) = $data;
     }
 
