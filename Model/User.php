@@ -139,6 +139,11 @@ abstract class User extends AbstractedUser implements UserInterface
     protected $credentialsExpired;
 
     /**
+     * @var \DateTime
+     */
+    protected $credentialsExpireAt;
+    
+    /**
      * @var boolean
      */
     protected $expired;
@@ -847,6 +852,5 @@ abstract class User extends AbstractedUser implements UserInterface
     {
         return !$this->isAccountNonExpired();
     }
-
 
 }
