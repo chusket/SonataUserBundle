@@ -16,7 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-
+use Symfony\Component\HttpFoundation\Request;
 /**
  * This class is inspired from the FOS Profile Controller, except :
  *   - only twig is supported
@@ -74,7 +74,7 @@ class ProfileFOSUser1Controller extends Controller
      *
      * @throws AccessDeniedException
      */
-    public function editProfileAction()
+    public function editProfileAction(Request $request)
     {
         $user = $this->getUser();
         if (!is_object($user) || !$user instanceof UserInterface) {
